@@ -16,6 +16,10 @@ alias cd="ccd"
 # For Vim Mappings
 stty -ixon              # Opens up keybindings <C-s> & <C-q> which would otherwise "lock/unlock" the terminal.
 
+# Set zsh theme
+#ZSH_THEME=alanpeabody
+
+#source $HOME/.dotfiles/zsh/plugins/oh-my-zsh/themes/alanpeabody.zsh-theme
 source $HOME/.dotfiles/zsh/plugins/oh-my-zsh/lib/history.zsh
 source $HOME/.dotfiles/zsh/plugins/oh-my-zsh/lib/key-bindings.zsh # Oh-my-zsh keybindings. I believe these tie into the custom keybindings.sh file seen below
 source $HOME/.dotfiles/zsh/plugins/oh-my-zsh/lib/completion.zsh # Enables <TAB> completion to complement the autosuggestions

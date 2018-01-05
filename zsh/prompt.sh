@@ -47,6 +47,7 @@ set_prompt() {
 		PS1+="%{$fg_bold[red]%}SUDO%{$reset_color%}"
 	fi
 
+    # ]
 	PS1+="%{$fg[white]%}]: %{$reset_color%}% "
 }
 
