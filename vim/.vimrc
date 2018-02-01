@@ -85,3 +85,8 @@ augroup end
 
 " deoplete tab-complete keybinding
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" deoplete clang settings
+let g:deoplete#sources#clang#libclang_path='$HOME/build/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header='$HOME/build/lib/clang/'
