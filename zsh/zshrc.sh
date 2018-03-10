@@ -43,3 +43,6 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
 fi
 
 source $HOME/.dotfiles/zsh/prompt.sh
+
+# disables prompt mangling in virtual_env/bin/activate
+export VIRTUAL_ENV_DISABLE_PROMPT=1

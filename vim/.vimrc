@@ -44,6 +44,10 @@ if empty(glob('$HOME/.local/share/nvim/site/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $HOME/.dotfiles/vim/.vimrc
 endif
 
+
+" virtual enb settings for neovim
+
+
 " Vim-plug Section
 "   - For traditional Vim: $HOME/.vim/plugged
 "   - Upon any plugin installation, reload .vimrc and use :PlugInstall
@@ -57,6 +61,11 @@ call plug#begin('$HOME/.local/share/nvim/plugged')
 
 Plug 'morhetz/gruvbox' " Gruvbox theme.
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Deoplete autocompletion
+Plug 'zchee/deoplete-clang' " Clang family asynchronous autocompletion
+Plug 'zchee/deoplete-jedi' " Python autocompletion
+Plug 'arakashic/chromatica.nvim' " Clang syntax highlighting
+Plug 'https://github.com/jiangmiao/auto-pairs.git' " Auto completes pairs when typing
+Plug 'https://github.com/vim-syntastic/syntastic.git' " Code error reporting/linting
 
 call plug#end()
 
@@ -88,5 +97,21 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " deoplete clang settings
-let g:deoplete#sources#clang#libclang_path='$HOME/build/lib/libclang.so'
-let g:deoplete#sources#clang#clang_header='$HOME/build/lib/clang/'
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang-3.8.so'
+let g:deoplete#sources#clang#clang_header = '/usr/lib/llvm-3.8/lib/clang'
+
+" Chromatica settings
+let g:chromatica#libclang_path = '/usr/lib/llvm-3.8/lib/libclang-3.8.so'
+let g:chromatica#enable_at_startup = 1
+let g:chromatica#responsive_mode = 1
+
+" Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_cpp_checkers = ['clang_check']
