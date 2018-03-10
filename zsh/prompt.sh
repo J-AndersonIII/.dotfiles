@@ -11,6 +11,13 @@ set_prompt() {
 	# [
 	PS1="%{$fg[white]%}[%{$reset_color%}"
 
+    # Determine active Python virtualenv details.
+    if test -z "$VIRTUAL_ENV" ; then
+        PS1+=""
+    else
+        PS1+="%{$fg[yellow]%}(`basename \"$VIRTUAL_ENV\"`)"
+    fi
+
 	# Path: http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
 	PS1+="%{$fg_bold[cyan]%}${PWD/#$HOME/~}%{$reset_color%}"
 
@@ -30,7 +37,7 @@ set_prompt() {
 	# Timer: http://stackoverflow.com/questions/2704635/is-there-a-way-to-find-the-running-time-of-the-last-executed-command-in-the-shel
 	if [[ $_elapsed[-1] -ne 0 ]]; then
 		PS1+=', '
-		PS1+="%{$fg[magenta]%}$_elapsed[-1]s%{$reset_color%}"
+		PS1+="%{$fg[magenta]%}$_elapsed[-1]s){$reset_color%}"
 	fi
 
 	# PID
