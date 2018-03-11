@@ -66,6 +66,7 @@ Plug 'zchee/deoplete-jedi' " Python autocompletion
 Plug 'arakashic/chromatica.nvim' " Clang syntax highlighting
 Plug 'https://github.com/jiangmiao/auto-pairs.git' " Auto completes pairs when typing
 Plug 'https://github.com/vim-syntastic/syntastic.git' " Code error reporting/linting
+Plug 'Shougo/neosnippet' " Snippet functionality. Snippets can be found in ~/.dotfiles/extras/snippets/
 
 call plug#end()
 
@@ -115,3 +116,23 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_checkers = ['clang_check']
+let g:syntastic_python_checkers = ['pylint']
+
+" NeoSnippet Settings
+let g:neosnippet#disable_runtime_snippets = 1 " Ignore default snippets
+let g:neosnippet#snippets_directory = '~/.dotfiles/extras/snippets' " Assign my own snippet directory
+let g:deoplete#ignore_sources = {}
+let g:deoplete#ignore_sources._ = ["neosnippet"] " Remove autocompletion from snippet input fields
+
+function! s:neosnippet_complete() " Tab will expand depending on snippet window state otherwise will just use normal tab
+  if pumvisible()
+    return "\<c-n>"
+  else
+    if neosnippet#expandable_or_jumpable() 
+      return "\<Plug>(neosnippet_expand_or_jump)"
+    endif
+    return "\<tab>"
+  endif
+endfunction
+
+imap <expr><TAB> <SID>neosnippet_complete()
