@@ -9,7 +9,23 @@ snippet ifmain
     if __name__ == '__main__':
 		${1:main()}
 
-snippet bclass
+snippet class
     class ${1:#:name}(${2:object}):
 		def __init__(self, ${3}):
 			${0:pass}
+
+snippet dstring
+    """
+	File: ${1:`vim_snippets#Filename('$1.py', 'foo.py')`}
+	Author: `g:snips_author`
+	Email: `g:snips_email`
+	Github: `g:snips_github`
+	Description: ${2}
+	"""
+    ${0}
+
+snippet sdstring
+    """
+    Exercise ${1:Exercise Number} from Learn Python the Hard Way
+    """
+    ${0}

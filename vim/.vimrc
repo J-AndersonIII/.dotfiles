@@ -124,6 +124,9 @@ let g:neosnippet#disable_runtime_snippets = {'python' : 1} " Ignore default snip
 let g:neosnippet#snippets_directory = '~/.dotfiles/extras/snippets' " Assign my own snippet directory
 let g:deoplete#ignore_sources = {}
 let g:deoplete#ignore_sources._ = ["neosnippet"] " Remove autocompletion from snippet input fields
+let g:snips_author = "Jerome Anderson"
+let g:snips_email = "jandersonxlr@gmail.com"
+let g:snips_github = "MrAndersonIII"
 
 function! s:neosnippet_complete() " Tab will expand depending on snippet window state otherwise will just use normal tab
   if pumvisible()
