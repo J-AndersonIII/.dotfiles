@@ -96,6 +96,7 @@ augroup end
 " deoplete tab-complete keybinding
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+imap <expr><Esc> pumvisible() ? deoplete#mappings#close_popup() : "\<Esc>"
 
 " deoplete clang settings
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang-3.8.so'
@@ -119,7 +120,7 @@ let g:syntastic_cpp_checkers = ['clang_check']
 let g:syntastic_python_checkers = ['pylint']
 
 " NeoSnippet Settings
-let g:neosnippet#disable_runtime_snippets = 1 " Ignore default snippets
+let g:neosnippet#disable_runtime_snippets = {'python' : 1} " Ignore default snippets
 let g:neosnippet#snippets_directory = '~/.dotfiles/extras/snippets' " Assign my own snippet directory
 let g:deoplete#ignore_sources = {}
 let g:deoplete#ignore_sources._ = ["neosnippet"] " Remove autocompletion from snippet input fields
