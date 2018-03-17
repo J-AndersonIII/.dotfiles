@@ -10,6 +10,7 @@ set shiftwidth=4
 "set relativenumber
 set number
 set linespace=0
+set termguicolors
 
 if !&scrolloff
 	set scrolloff=3 " Show next 3 lines while scrolling.
@@ -72,6 +73,7 @@ call plug#end()
 
 " Anything Plugin related goes below here (colorschemes included!)
 set background=dark "Set dark mode for gruvbox dark theme
+let g:gruvbox_italic = 1
 colorscheme gruvbox
 
 let g:deoplete#enable_at_startup=1 " Lines 67-70 enable deoplete at startup and allow omnifuncs

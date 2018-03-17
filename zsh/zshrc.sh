@@ -42,4 +42,5 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
 	bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
 
+#KEYTIMEOUT=1 # Possibly fixes vim delay when hitting ESC.
 source $HOME/.dotfiles/zsh/prompt.sh
