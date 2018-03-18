@@ -1,5 +1,8 @@
 " General Settings
 
+let g:python_host_prog = '/usr/bin/python'
+let g:python2_host_prog = '/usr/bin/python2.7'
+"let g:python3_host_prog = '/usr/bin/python3'
 "syntax on
 "set showmatch
 let mapleader=","
@@ -119,7 +122,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_checkers = ['clang_check']
-let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_checkers = ['pyflakes']
 
 " NeoSnippet Settings
 let g:neosnippet#disable_runtime_snippets = {'python' : 1} " Ignore default snippets
